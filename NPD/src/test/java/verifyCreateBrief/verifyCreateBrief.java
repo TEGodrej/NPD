@@ -322,4 +322,740 @@ public class verifyCreateBrief extends BaseClass{
 		addBriefPage.clickOnCancelButton();
 		addBriefPage.clickOnCrossSignButton();
 	}
+	
+	@Test
+	public void verifyUserAbleToSaveBriefAsSaveSsDraft() {
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		driverUtility.implicitlyWait(4);
+		addBriefPage.clickOnCancelButton();
+		addBriefPage.clickOnSaveAsDraftButton();
+		addBriefPage.verifySuccessPopMessage();
+	}
+	
+	@Test
+	public void verifyUserAbleToEditBriefAfterClickingOnContinueEditingButton() {
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		driverUtility.implicitlyWait(4);
+		addBriefPage.clickOnCancelButton();
+		addBriefPage.clickOnContinueEditingButton();
+		addBriefPage.verifyPageTitle();
+	}
+	
+	@Test
+	public void ToCheckIfThePageIsMovingToNextPageProductDetails() {
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		driverUtility.implicitlyWait(4);
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+	}
+	
+	@Test
+	public void ToCheckIfThePageIsMovingToPreviousPageProductDetails() {
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		driverUtility.implicitlyWait(4);
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnPreviousButton();
+		addBriefPage.verifyPageHeader();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateProductDetailOrNot() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+		
+		
+	}
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringProductNameFlavoursSKUSizes() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+		addBrief_ProductDetailPage.clickOnPreviousButton();
+	}
+	
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringBenchmarksInternal() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringBenchmarksExternal() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringPointOfDifferentiationVsInternal() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringIfPointOfDifferentiationVsExternal() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+		
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringClaims() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringConceptConsumerInsightProductStory_USP_RTB() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringNewPackaging() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringPhysicalAttributeShapeSizeAppearance() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringSensorialAttribute_Flavour_Taste_Texture() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringExpectedShelfLife() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringMustHave() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToGoodToHaveTextField(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringGoodToHave() {
+		String TestMessage= "test1";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBrief_ProductDetailPage.sendkeyToProductNameTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalBenchMarkTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToInternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToExternalPointOfDifferenceTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToClaimsTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToConceptTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToYesRadioButton();
+		WebElement goodtoHaveTitle=driver.findElement(By.xpath("//label[@title='Good to Have']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", goodtoHaveTitle);
+		addBrief_ProductDetailPage.sendkeyToPackagingTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToProductActionStandardTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToSensorialAttributeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToShelfLifeTextField(TestMessage);
+		addBrief_ProductDetailPage.sendkeyToMustHaveTextfield(TestMessage);
+		addBrief_ProductDetailPage.ClickOnNextButton();
+		addBrief_ProductDetailPage.verifySuccessMessage();
+	}
+	
+	@Test
+	public void PreviousPageShouldBeDisplayAfterClickingOnThePreviousButton() {
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnPreviousButton();
+		addBriefPage.verifyPageTitle();
+	}
+	
+	@Test
+	public void VerifyFurtherPageShouldBeDisplayAfterClickingOnTheNextButton() {
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnNextButton();
+		commercialsPage.verifyCommercialPageTitle();
+	}
+	
+	@Test
+	public void VerifyUserShouldBeAbleToFillAllRequiredDetailsInCommercialPage() {
+		String testMessage="Test";
+		String testData= "23";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnNextButton();
+		commercialsPage.verifyCommercialPageTitle();
+		commercialsPage.clickOnMonthsEstimateVolume(testData);
+		commercialsPage.clickOnMonthValue(testData);
+		commercialsPage.clickOnExpectedPrice(testData);
+		commercialsPage.clickOnExpectedContributton(testData);
+		commercialsPage.sendKeysToCurrentContribution(testData);
+		commercialsPage.clickOnYesRadioButton();
+		commercialsPage.sendKeysToRationalCollection(testMessage);
+		commercialsPage.sendKeysToWhyToDo(testMessage);
+		commercialsPage.sendKeysToRmIdealTextField(testData);
+		commercialsPage.sendKeysToRMnoGoTextField(testData);
+		commercialsPage.sendKeysTopmIdealTextField(testData);
+		commercialsPage.sendKeysToPmNoGoCostTextField(testData);
+		addBriefPage.clickOnNextButton();
+		commercialsPage.verifyStep3SuccessfullMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOnMileStonePage() {
+		String testMessage="Test";
+//		String testData= "23";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnNextButton();
+		commercialsPage.verifyCommercialPageTitle();
+		addBriefPage.clickOnNextButton();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.ClickOnExpectedDeliveryDate();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.clickOnNextMonthArrowButton();
+		mileStonePage.clickOnDate();
+		mileStonePage.clickOnProjectPriorityDropDown();
+		mileStonePage.clickOnDropDownFirstOption();
+		mileStonePage.sendKeysToReasonForPriorityTextField(testMessage);
+		mileStonePage.sendkeysToIntermittentMilestonesTextField(testMessage);
+		addBriefPage.clickOnNextButton();
+		mileStonePage.verifyStep4SuccessfullMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOnMileStonePageWithPriorityOfProjectAsIntermediate_6_9_Months() {
+		String testMessage="Test";
+//		String testData= "23";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnNextButton();
+		commercialsPage.verifyCommercialPageTitle();
+		addBriefPage.clickOnNextButton();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.ClickOnExpectedDeliveryDate();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.clickOnNextMonthArrowButton();
+		mileStonePage.clickOnDate();
+		mileStonePage.clickOnProjectPriorityDropDown();
+		mileStonePage.clickOnDropDownSecondOption();
+		mileStonePage.sendKeysToReasonForPriorityTextField(testMessage);
+		mileStonePage.sendkeysToIntermittentMilestonesTextField(testMessage);
+		addBriefPage.clickOnNextButton();
+		mileStonePage.verifyStep4SuccessfullMessage();
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOnMileStonePageWithPriorityOfProjectAsStrategic_12_15_Months() {
+		String testMessage="Test";
+//		String testData= "23";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnNextButton();
+		commercialsPage.verifyCommercialPageTitle();
+		addBriefPage.clickOnNextButton();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.ClickOnExpectedDeliveryDate();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.clickOnNextMonthArrowButton();
+		mileStonePage.clickOnDate();
+		mileStonePage.clickOnProjectPriorityDropDown();
+		mileStonePage.clickOnDropDownThirdOption();
+		mileStonePage.sendKeysToReasonForPriorityTextField(testMessage);
+		mileStonePage.sendkeysToIntermittentMilestonesTextField(testMessage);
+		addBriefPage.clickOnNextButton();
+		mileStonePage.verifyStep4SuccessfullMessage();
+	}
+	
+	@Test
+	public void NextPageShouldDisplayAfterClickingOnTheNextButton() {
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnNextButton();
+		commercialsPage.verifyCommercialPageTitle();
+		addBriefPage.clickOnNextButton();
+		mileStonePage.verifyMileStonePAgeTitle();
+		addBriefPage.clickOnNextButton();
+		operationsPage.verifyoperationPageTitle();
+		
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringReasonForPrioritization_TargetConsumer_SourceOfBusiness_Business_Rationale() {
+		String testMessage="Test";
+//		String testData= "23";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnNextButton();
+		commercialsPage.verifyCommercialPageTitle();
+		addBriefPage.clickOnNextButton();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.ClickOnExpectedDeliveryDate();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.clickOnNextMonthArrowButton();
+		mileStonePage.clickOnDate();
+		mileStonePage.clickOnProjectPriorityDropDown();
+		mileStonePage.clickOnDropDownFirstOption();
+		mileStonePage.sendkeysToIntermittentMilestonesTextField(testMessage);
+		addBriefPage.clickOnNextButton();
+		mileStonePage.verifyStep4SuccessfullMessage();
+		
+	}
+	
+	@Test
+	public void VerifyUserAbleToCreateBriefOrNotWithoutEnteringIntermittentMilestones() {
+		String testMessage="Test";
+//		String testData= "23";
+		driverUtility.implicitlyWait(10);
+		loginpage.Login();
+		loginpage.ClickOnLoginButton();
+		dashboardPage.ClickOnstageGateButton();
+		driverUtility.implicitlyWait(4);
+		stageGatePage.clickOnStageOneButton();
+		stageGatePage.clickOncreateBriefButton();
+		addBriefPage.clickOnNextButton();
+		addBriefPage.verifySecondPageTitle();
+		addBriefPage.clickOnNextButton();
+		commercialsPage.verifyCommercialPageTitle();
+		addBriefPage.clickOnNextButton();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.ClickOnExpectedDeliveryDate();
+		driverUtility.implicitlyWait(10);
+		mileStonePage.clickOnNextMonthArrowButton();
+		mileStonePage.clickOnDate();
+		mileStonePage.clickOnProjectPriorityDropDown();
+		mileStonePage.clickOnDropDownFirstOption();
+		mileStonePage.sendKeysToReasonForPriorityTextField(testMessage);
+		addBriefPage.clickOnNextButton();
+		mileStonePage.verifyStep4SuccessfullMessage();
+	}
 }

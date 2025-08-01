@@ -5,8 +5,8 @@
     <classes>
       <class name="verifyCreateBrief.verifyCreateBrief">
         <methods>
-          <include name="VerifyUserAbleToCreateBriefOrNot"/>
           <include name="Login"/>
+          <include name="VerifyUserAbleToCreateBriefOnMileStonePage"/>
         </methods>
       </class> <!-- verifyCreateBrief.verifyCreateBrief -->
     </classes>

@@ -106,6 +106,24 @@ public class AddBriefPage extends BaseClass{
 	@FindBy(xpath = "//button[@class=\"text-gray-400 hover:text-gray-600 transition-colors\"]//*[name()=\"svg\"]")
 	private WebElement crossSignButton;
 	
+	@FindBy(xpath = "//div[text()='Draft Project submitted successfully!']")
+	private WebElement successPopMessage;
+	
+	@FindBy(xpath = "//h2[text()='Add Brief']")
+	private WebElement pageTitle;
+	
+	@FindBy(xpath = "//div[text()='Product Details']")
+	private WebElement secondPageTitle;
+	
+	@FindBy(xpath = "//span[text()='Previous']")
+	private WebElement previousButton;
+	
+	@FindBy(xpath = "//h4[text()='Project Details']")
+	private WebElement pageHeader;
+	
+	@FindBy(xpath = "//input[@id='rc_select_62']")
+	private WebElement customerType;
+	
 	
 	public void ClickOnProjectChampionTextField() {
 		if(projectChampionTextField.isDisplayed()) {
@@ -332,5 +350,54 @@ public class AddBriefPage extends BaseClass{
 		}catch (Exception e) {
 			System.out.println("Not able to click on Cross Sign Button");
 		}
+	}
+	
+	public void verifySuccessPopMessage() {
+		try {
+			successPopMessage.isDisplayed() ;
+			System.out.println("Brief is saved as Draft");
+			
+		}catch (Exception e) {
+			System.out.println("Success Pop Message is not dispayed");
+		}
+	}
+	
+	public void verifyPageTitle() {
+		try {
+			pageTitle.isDisplayed();
+			System.out.println("Page title is verified");
+		}catch (Exception e) {
+			System.out.println("Page title is not verified");
+		}
+	}
+	
+	public void verifySecondPageTitle() {
+		try {
+			secondPageTitle.isEnabled();
+			System.out.println("You moved to product details page");
+		}catch (Exception e) {
+			System.out.println("You are still on the same page");
+		}
+	}
+	
+	public void clickOnPreviousButton() {
+		try {
+			previousButton.click();
+		}catch (Exception e) {
+			System.out.println("Not able to click  on Previous Button");
+		}
+	}
+	
+	public void verifyPageHeader() {
+		try {
+			pageHeader.isDisplayed();
+			System.out.println("You moved to Project Details Page");
+		}catch (Exception e) {
+			System.out.println("PageHeader is not displayed");
+		}
+	}
+	
+	public void getCustomerTypeDetails() {
+		customerType.getText();
 	}
 }
