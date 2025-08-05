@@ -25,6 +25,9 @@ public class FormReviewPage {
 	@FindBy(xpath = "//div[10]//button[1]//span[1]//span[1]//*[name()=\"svg\"]//*[name()=\"path\" and contains(@d,\"M257.7 752\")]")
 	private WebElement operatorEditIcon;
 	
+	@FindBy(xpath = "//span[normalize-space()='Please fix all errors before submitting the form.']")
+	private WebElement TextFieldErrorMessage;
+	
 	public void verifyFormPageTitle() {
 		try {
 			formPageTitle.isDisplayed();
@@ -58,6 +61,15 @@ public class FormReviewPage {
 			System.out.println("Clicked on OperatorEdit Icon");
 		}catch (Exception e) {
 			System.out.println("Not able to click on OperatorEdit Icon");
+		}
+	}
+	
+	public void verifyTextFieldErrorMessage() {
+		try {
+			TextFieldErrorMessage.isDisplayed();
+			System.out.println("TextField Error Message is displayed");
+		}catch (Exception e) {
+			System.out.println("TextFieldErrorMessage is not displayed");
 		}
 	}
 	
