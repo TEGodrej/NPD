@@ -45,7 +45,7 @@ public class BaseClass {
 		
 		driver.get("https://gtfl-npd-webapp.azurewebsites.net/");
 		
-		driverUtility              =new Driverutility();
+		driverUtility              =new Driverutility(driver);
 		fileUtility                = new FileUtility();
 		loginpage                  =new LoginPage(driver);
 		dashboardPage              = new DashBoardPage(driver);

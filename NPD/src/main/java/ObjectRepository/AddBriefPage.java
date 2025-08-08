@@ -1,5 +1,6 @@
 package ObjectRepository;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -45,6 +46,9 @@ public class AddBriefPage extends BaseClass{
 	@FindBy(xpath = "//div[@class='ant-select-item-option-content'][normalize-space()='New']")
 	private WebElement NewCustomer;
 	
+	@FindBy(xpath = "//div[@class='ant-select-item-option-content'][normalize-space()='Existing']")
+	private WebElement existingCustomer;
+	
 	@FindBy(xpath = "//body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[5]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]")
 	private WebElement vegTextField;
 	
@@ -54,7 +58,8 @@ public class AddBriefPage extends BaseClass{
 	@FindBy(xpath = "(//span[@class=\"ant-select-selection-item\"])[5]")
 	private WebElement categoryTextField;
 	
-	@FindBy(xpath = "//input[@id='rc_select_6']")
+//	@FindBy(xpath = "//input[@id='rc_select_20']")
+	@FindBy(xpath = "//div[@class='ant-select-selector']/descendant::input[@id='rc_select_4']")
 	private WebElement productCategory1;
 	
 	@FindBy(xpath = "//div[@class='ant-select-item-option-content'][normalize-space()='Frozen']")
@@ -231,18 +236,24 @@ public class AddBriefPage extends BaseClass{
 	}
 	
 	public void clickOnProductCategory1() {
-		try {
+//		try {
 //			driverUtility.explicitWaitUntilClickable(10, productCategory1);
+//			By pc = (By) driver.findElement(By.xpath("//input[@id='rc_select_20']"));
+//			driverUtility.explicitWaitByLocator(5, pc);
+//			driver.findElement(pc).click(); 
 
-			productCategory1.click();
-		}catch (Exception e) {
-			System.out.println("Not able to click on productCategory1");
-		}
+//			productCategory1.click();
+//			driverUtility.actionClick(productCategory1);
+			driverUtility.forceClik(productCategory1);
+			System.out.println("clicked on productCategory1");
+//		}catch (Exception e) {
+//			System.out.println("Not able to click on productCategory1");
+//		}
 	}
 	
 	public void clickOnFrozenOption() {
 		try {
-//			driverUtility.explicitWaitUntilClickable(5, chilledOption);
+			driverUtility.explicitWaitUntilClickable(10, FrozenOption);
 			FrozenOption.click();
 		}catch (Exception e) {
 			System.out.println("Not able to click on Frozen Option");
@@ -399,5 +410,14 @@ public class AddBriefPage extends BaseClass{
 	
 	public void getCustomerTypeDetails() {
 		customerType.getText();
+	}
+	
+	public void clickOnExistingCustomer() {
+		try {
+			existingCustomer.click();
+			System.out.println("clicked on existing Customer");
+		}catch (Exception e) {
+			System.out.println("Not able to click on existing Customer");
+		}
 	}
 }

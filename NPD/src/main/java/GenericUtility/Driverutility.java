@@ -5,13 +5,21 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Driverutility extends BaseClass{
+	
+	WebDriver driver;
+	public Driverutility(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
 
 	public static WebDriverWait wait;
 	public void WaitToClick(int time, WebElement element) {
@@ -86,7 +94,7 @@ public class Driverutility extends BaseClass{
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
-	public void ClickAction(WebElement element) {
+	public void ClickActionOnWebelement(WebElement element) {
 		Actions action =new Actions(driver);
 		action.moveToElement(element).click().perform();
 	}
@@ -94,5 +102,15 @@ public class Driverutility extends BaseClass{
 	public void scrollByAction(WebElement element) {
 		Actions action= new Actions(driver);
 		action.moveToElement(element).perform();
+	}
+	
+	public void actionClick(WebElement element) {
+		Actions action = new Actions(driver);
+		action.click(element).click().perform();
+	}
+	
+	public void forceClik(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();",element );
 	}
 }
