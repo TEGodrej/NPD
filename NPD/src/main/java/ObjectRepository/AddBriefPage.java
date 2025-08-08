@@ -1,6 +1,5 @@
 package ObjectRepository;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -236,7 +235,7 @@ public class AddBriefPage extends BaseClass{
 	}
 	
 	public void clickOnProductCategory1() {
-//		try {
+		try {
 //			driverUtility.explicitWaitUntilClickable(10, productCategory1);
 //			By pc = (By) driver.findElement(By.xpath("//input[@id='rc_select_20']"));
 //			driverUtility.explicitWaitByLocator(5, pc);
@@ -244,11 +243,12 @@ public class AddBriefPage extends BaseClass{
 
 //			productCategory1.click();
 //			driverUtility.actionClick(productCategory1);
-			driverUtility.forceClik(productCategory1);
+//			driverUtility.forceClik(productCategory1);
+			driverUtility.contextClick(productCategory1);
 			System.out.println("clicked on productCategory1");
-//		}catch (Exception e) {
-//			System.out.println("Not able to click on productCategory1");
-//		}
+		}catch (Exception e) {
+			System.out.println("Not able to click on productCategory1 " + e );
+		}
 	}
 	
 	public void clickOnFrozenOption() {

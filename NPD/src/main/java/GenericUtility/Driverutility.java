@@ -8,17 +8,16 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Driverutility extends BaseClass{
+public class Driverutility {
 	
-	WebDriver driver;
+	public WebDriver driver;
 	public Driverutility(WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
+		this.driver = driver;
+		
 	}
 
 	public static WebDriverWait wait;
@@ -107,6 +106,11 @@ public class Driverutility extends BaseClass{
 	public void actionClick(WebElement element) {
 		Actions action = new Actions(driver);
 		action.click(element).click().perform();
+	}
+	
+	public void contextClick(WebElement element) {
+		Actions action = new Actions(driver);
+		action.contextClick(element);
 	}
 	
 	public void forceClik(WebElement element) {

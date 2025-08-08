@@ -42,10 +42,10 @@ public class verifyCreateBrief extends BaseClass{
 		WebElement customerDetails= driver.findElement(By.xpath("//h4[text()='Customer Details']"));
 		JavascriptExecutor js= (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", customerDetails);
-		WebElement pc=driver.findElement(By.xpath("//div[@class='ant-select-selector']/descendant::input[@id='rc_select_4']"));
-		js.executeScript("arguments[0].click();", pc);
+//		WebElement pc=driver.findElement(By.xpath("//div[@class='ant-select-selector']/descendant::input[@id='rc_select_4']"));
+//		js.executeScript("arguments[0].click();", pc);
 //		pc.click();
-//		addBriefPage.clickOnProductCategory1();
+		addBriefPage.clickOnProductCategory1();
 		addBriefPage.clickOnFrozenOption();
 //		addBriefPage.clickOnProductCategory2();
 //		driverUtility.implicitlyWait(4);
